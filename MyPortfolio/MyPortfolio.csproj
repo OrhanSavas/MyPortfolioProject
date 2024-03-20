@@ -283,6 +283,10 @@
     <Content Include="Views\AdminLayout\AdminLayoutSideBar.cshtml" />
     <Content Include="Views\AdminLayout\AdminLayoutHead.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\About\AddAbout.cshtml" />
+    <Content Include="Views\About\UpdateAbout.cshtml" />
+    <Content Include="Views\Category\AddCategory.cshtml" />
+    <Content Include="Views\Category\UpdateCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

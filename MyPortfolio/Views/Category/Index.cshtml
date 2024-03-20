@@ -1,9 +1,32 @@
-﻿
+﻿@model List<MyPortfolio.Models.TblCategories>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 <br />
 <br />
 <h3>Kategoriler Sayfası</h3>
 
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.CategoryName</td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryId" class=" btn btn-outline-danger danger">Sil</a></td>
+            <td><a href="/Category/UpdateCategory/@item.CategoryId" class=" btn btn-outline-info">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<br />
+<a href="/Category/AddCategory" class="btn btn-outline-primary">Yeni Kategori Ekle</a>
