@@ -79,7 +79,7 @@
           <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImageUrl" Type="nvarchar(max)" />
           <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Categoryd" Type="int" />
+          <Property Name="CategoryId" Type="int" />
           <Property Name="GithubUrl" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TblServices">
@@ -142,7 +142,7 @@
               <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="TblProjects">
-              <PropertyRef Name="Categoryd" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -245,7 +245,7 @@
           <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Categoryd" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
           <Property Name="GithubUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TblCategories" Relationship="Self.FK_TblProjects_TblCategories" FromRole="TblProjects" ToRole="TblCategories" />
         </EntityType>
@@ -309,11 +309,11 @@
               <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="TblProjects">
-              <PropertyRef Name="Categoryd" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MyAcademyPortfolioProjectEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MyAcademyPortfolioProjectEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TblAbouts" EntityType="Self.TblAbouts" />
           <EntitySet Name="TblCategories" EntityType="Self.TblCategories" />
@@ -337,7 +337,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyAcademyPortfolioProjectModelStoreContainer" CdmEntityContainer="MyAcademyPortfolioProjectEntities">
+        <EntityContainerMapping StorageEntityContainer="MyAcademyPortfolioProjectModelStoreContainer" CdmEntityContainer="MyAcademyPortfolioProjectEntities1">
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="MyAcademyPortfolioProjectModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -418,7 +418,7 @@
                 <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-                <ScalarProperty Name="Categoryd" ColumnName="Categoryd" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="GithubUrl" ColumnName="GithubUrl" />
               </MappingFragment>
             </EntityTypeMapping>

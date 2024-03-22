@@ -17,7 +17,7 @@ namespace MyPortfolio.Models
         public int ProjectId { get; set; }
         public string ImageUrl { get; set; }
         public string ProjectName { get; set; }
-        public Nullable<int> Categoryd { get; set; }
+        public Nullable<int> CategoryId { get; set; }
         public string GithubUrl { get; set; }
     
         public virtual TblCategories TblCategories { get; set; }
