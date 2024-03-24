@@ -38,5 +38,42 @@ namespace MyPortfolio.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult UpdateProject(int id) 
+        {
+            var categories = db.TblCategories.ToList();
+
+            List<SelectListItem> categoryList = (from x in categories
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.CategoryName,
+                                                     Value = x.CategoryId.ToString()
+                                                 }).ToList();
+
+            ViewBag.category = categoryList;
+            var value = db.TblProjects.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProject(TblProjects projects) 
+        {
+            var value = db.TblProjects.Find(projects.ProjectId);
+            value.ProjectName = projects.ProjectName;
+            value.ImageUrl = projects.ImageUrl;
+            value.GithubUrl = projects.GithubUrl;
+            value.CategoryId = projects.CategoryId;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteProject(int id)
+        {
+            var value = db.TblProjects.Find(id);
+            db.TblProjects.Remove(value);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

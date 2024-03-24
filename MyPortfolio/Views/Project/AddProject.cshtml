@@ -19,8 +19,8 @@
     <input type="text" name="GithubUrl" class="form-control" />
     <br />
     <label>Kategori</label>
-    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.category, new {@class="form-control"})
-
+    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.category,"Kategoriyi Seçin", new {@class="form-control"})
+    <br />
     <button class="btn btn-outline-primary">Kaydet</button>
 
 </form>

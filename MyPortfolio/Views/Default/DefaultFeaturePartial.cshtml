@@ -1,0 +1,36 @@
+﻿@model List<MyPortfolio.Models.TblFeatures>
+
+@foreach (var item in Model)
+{
+
+    <div class="hero" id="home">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-12 col-md-6">
+                    <div class="hero-content">
+
+
+                        <div class="hero-text">
+                            <p>Merhaba! Ben</p>
+                            <h1>@item.NameSurname</h1>
+                            <h2></h2>
+                            <div class="typed-text">@item.Title</div>
+                        </div>
+                       
+
+                        <div class="hero-btn">
+                            <a class="btn" href="#contact">Benimle Çalışın</a>
+                            <a class="btn" href="#contact">İletişime Geçin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 d-none d-md-block">
+                    <div class="hero-image">
+                        <img src="@item.ImageUrl" alt="Hero Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
